@@ -1,0 +1,237 @@
+package com.example.prueba_emulada
+
+import android.os.Bundle
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(findViewById(R.id.toolbar))
+
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+        }
+        variablesYConstantes()
+        // TIPOS DE DATOS
+        tiposDeDatos()
+        // SENTXENCIA IF
+        //sentenciaIf()
+        // SENTENCIA WHEN
+        //sentenciaWhen()
+        // ARRAYS/ARREGLOS
+        //arrays()
+        // MAPAS Y/O DICCIONARIOS
+        //mapasYDiccionarios()
+        // Bucle
+        //buclesForWhile()
+        // NULL SAFETY <-- PARA PODER HACER QUE LAS VARIABLES TOMEN EL VALOR NULO
+        //nullSafety()
+        // funciones <-- trozos de codigo compacto
+        //funciones()
+        // LLAMAMOS A NUESTRA FUNCION DE CLASES
+        clases()
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    // VAMOS A CREAR UNA FUNCION
+    private fun variablesYConstantes(){
+        var myFirstVariable = "URBAN HAIRSTYLING"
+        var myFirstNumber = 1
+        println(myFirstVariable)
+        myFirstVariable = "Bienvenidos a Urban"
+        println(myFirstVariable)
+        var mySecondVariable = "Ven Ostia!"
+        println(mySecondVariable)
+        mySecondVariable = myFirstVariable
+        println(mySecondVariable)
+    }
+
+    private fun tiposDeDatos(){
+        val myString1 = "Es la mejor"
+        val myString2 = "peluqueria del mundo"
+        val myString3 = myString1 + " " + myString2
+        println(myString3)
+    }
+
+    // SENTENCIA IF
+    private fun sentenciaIf(){
+        val myNumber = 10
+        if (myNumber <= 10){
+            println("$myNumber es menor o igual que 10") //
+        } else {
+            println("$myNumber es mayor que 10")
+        }
+        // OPERADORES && <- AND Y || <- OR ! <- NO
+        if (myNumber > 5 && myNumber < 15){
+            println("Es Verdad")
+        }
+        else { println("NO ES VERDAD")
+        }
+    }
+    // SENTENCIA WHEN
+    private fun sentenciaWhen(){
+        val miPais = "Francia"
+        // When con Syring
+        when (miPais){
+            "España" , "Mexico" , "Argentina" , "Colombia" -> {
+                println("El idioma es e español")
+        } "EEUU" -> {
+            println("El idioma es e ingles")
+        } "Francia" -> {
+            println("El idioma es e frances")
+        } else -> {
+            println("No conocemos el idioma")
+        }
+        }
+        // When con Int
+        val age = 10
+        when (age){
+            0,1,2 -> { println("Eres un bebe")
+            } in 3..10 -> {
+            println("Eres un niño")
+            } in 11..30 -> {
+            println("Eres un chaval")
+            } in 30..99 -> {
+            println("Eres un anciano")
+            }
+        }
+    }
+    // ARRAYS O ARREGLOS <- GRUPOS DE DATOS DEL MSMO TIPO (STRING, INT, ETC...)
+    private fun arrays (){
+        // Vamos a generar los valores que seran parte del array
+        val nombre = "Mikel"
+        val apellido = "Lumbreras"
+        val company = "Universidad del Pais Vasco"
+        val edad = "26"
+        // Creamos el Array
+        val miPutoArray = arrayListOf<String>()
+        // AHORA  METEMOS LOS VALORES A LA LISTA
+        miPutoArray.add(nombre)
+        miPutoArray.add(apellido)
+        miPutoArray.add(company)
+        miPutoArray.add(edad)
+        println(miPutoArray)
+        // PARA AÑADIR UN CONJUNTO DE ATOS
+        miPutoArray.addAll(listOf("Hola" , "Caracola"))
+        println(miPutoArray)
+        // PARA ACCEDER A LOS VALORES DEL ARRAY
+        val miPutoCurro = miPutoArray[2]
+        println(miPutoCurro)
+        // Para modificar datos
+        miPutoArray.removeAt(4)
+        println(miPutoArray)
+        // Para recorrer los datos (el for)
+        miPutoArray.forEach{
+            println(it)
+        }
+        // Otras operaciones
+        println(miPutoArray.count())
+        miPutoArray.clear()
+    }
+    private fun mapasYDiccionarios(){
+        val miMapa: Map<String,Int> = mapOf()
+        println(miMapa)
+        // apara añadir elementos
+        //miMapa = mapOf("Brais" to 1, "Pedro" to 2 , "Sara" to 5)
+        println(miMapa)
+    }
+    // LO MAS IMPORTANTE: BUCLE FOR/WHILE
+    private fun buclesForWhile (){
+        // Bucle: Recorrer estructurs: Array/Mapas
+        val miArray = listOf<String>("Hola" , "Bienvenidos al tutorial" , "Suscribete")
+        val myMap: MutableMap<String,Int> = mutableMapOf("Brais" to 1, "Pedro" to 2, "Sara" to 5)
+        // FOR
+        for (myString in miArray){
+            println(myString)
+        }
+        for (myElement in myMap){
+            println("${myElement.key}-${myElement.value}")
+        }
+        // Crreaos un arraynumerico con la funcion de rango y lo reorremos
+        val miArrayNumerico = (0..20)
+        for (myNum in miArrayNumerico){
+            println(myNum)
+        }
+        // WHILE
+        var x = 0
+        while (x < 10){
+            println(x)
+            x += 2
+        }
+    }
+    private fun nullSafety(){
+        var myString = "Lumbrerillas"
+        //myString = null
+        println(myString)
+        // Para definir una variable null safety
+        var mySafetyString: String? = "Lumbrerillas null safety"
+        mySafetyString = null
+        println(mySafetyString)
+    }
+    private fun funciones(){
+        sayHello()
+        sayHello()
+        sayHello()
+
+        sayMyName(name = "Mikel")
+        sayMyName(name = "Batman")
+        sayMyName(name = "Andres")
+
+        sayMyNameAndAge(name = "Mikel" , age = 26)
+
+        val miResultado = sumando(5,5)
+        println(miResultado)
+        println(sumando(5,6))
+        println(sumando(5, sumando(1,2)))
+    }
+    // funcion simple
+    fun sayHello(){
+        println("Hola Mierdaseca!")
+    }
+    // funcion con parametros
+    fun sayMyName(name: String){
+        println("Hola, mi nombre es $name")
+    }
+    // Funcion mas de un parametro de entrada
+    fun sayMyNameAndAge(name: String , age:Int){
+        println("Hola, mi nombre es $name y tengo $age años")
+    }
+    // Funcion con parametros de salida
+    fun sumando(Numero1:Int, Numero2:Int):Int{
+        val Resultado = Numero1 + Numero2
+        return Resultado
+    }
+    // Clases Leccion 10
+    fun clases(){
+        val mikel = Programador("Mikel" , 26, arrayOf(Programador.lenguaje.JAVA , Programador.lenguaje.KOTLIN))
+        println(mikel.name)
+        mikel.age = 25
+        mikel.code()
+        val sara = Programador("Sara" , 31 , arrayOf(Programador.lenguaje.JAVA , Programador.lenguaje.KOTLIN) , arrayOf(mikel))
+        sara.code()
+
+        println("${sara.friends?.first()?.name} , es amigo de ${sara.name}")
+    }
+}

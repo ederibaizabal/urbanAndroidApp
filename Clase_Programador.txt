@@ -1,0 +1,17 @@
+package com.example.prueba_emulada
+
+class Programador(val name:String ,var age:Int, val languages: Array<lenguaje> , val friends: Array<Programador>? = null) {
+
+    enum class lenguaje{
+        KOTLIN,
+        SWIFT,
+        JAVA,
+        JAVASCRIPT
+    }
+
+    fun code(){
+        for (language in languages){
+            println("Estoy programando en $language")
+        }
+    }
+}
