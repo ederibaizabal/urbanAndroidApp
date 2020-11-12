@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewBienvenido"
+        android:layout_width="340dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:text="Bienvenido NombreDeUsuario"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextMultiLine"
+        android:layout_width="278dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Esto simplemete es un texto multilinea que quiero probar, aqui iria una pregunta al ususario de que desea hacer"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBienvenido" />
+
+    <Button
+        android:id="@+id/buttonReservar"
+        android:layout_width="156dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="64dp"
+        android:onClick="accionReservar"
+        android:text="RESERVAR"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMultiLine" />
+
+    <Button
+        android:id="@+id/buttonSalir"
+        android:layout_width="147dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="32dp"
+        android:onClick="accionSalir"
+        android:text="SALIR"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonReservar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
